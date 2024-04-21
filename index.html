@@ -1,0 +1,581 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="">
+	<head>
+		<title>BORVO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="assets/js/Chart.js"></script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<img src="images/Picture1.png" alt="Logo"/>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>BORVO</h1>
+								<p>This is the landing page for the diagnostics of your BORVOTAS RPi5, for anymore information contact BORVO.</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#Input">Input</a></li>
+								<li><a href="#Output">Output</a></li>
+								<li><a href="#Diagnostics">Diagnostics</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+								<li><a href="#billing">Billing</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Input -->
+							<article id="Input">
+								<h2 class="major">Input</h2>
+								<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
+								<p>Your RPi5 has registered in the last 24 hours the following changes in the energy input.</p>
+								<h3>Chart</h3>
+								<canvas id="myChartIn" style="width:100%;max-width:700px"></canvas>
+								<script>
+									window.onload = function() {
+										let ctx = document.getElementById('myChartIn').getContext('2d');
+										let myChartIn = new Chart(ctx, {
+											type: 'line',
+											data: {
+												labels: ['12 AM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM'],
+												datasets: [{
+													label: 'Voltage through time (in kiloWatts)',
+													data: [27, 29.4, 31.2, 33.4, 35.3, 34.85, 33.7, 33.3, 37.5, 41.3, 39.4, 39.5, 36.3, 37.3, 37.9, 38.12, 41.23, 39.78, 38.23, 36.49, 34.62, 32.6, 33.65, 32.3],
+													backgroundColor: [
+														'rgba(0, 0, 0, 0.2)',       // Midnight
+														'rgba(30, 30, 70, 0.2)',    // 1 AM
+														'rgba(30, 30, 70, 0.2)',    // 2 AM
+														'rgba(30, 30, 70, 0.2)',    // 3 AM
+														'rgba(30, 30, 70, 0.2)',    // 4 AM
+														'rgba(70, 70, 100, 0.2)',   // 5 AM
+														'rgba(100, 100, 150, 0.2)', // 6 AM
+														'rgba(150, 150, 200, 0.2)', // 7 AM
+														'rgba(200, 200, 255, 0.2)', // 8 AM
+														'rgba(200, 200, 255, 0.2)', // 9 AM
+														'rgba(200, 200, 255, 0.2)', // 10 AM
+														'rgba(200, 200, 255, 0.2)', // 11 AM
+														'rgba(200, 200, 255, 0.2)', // Noon
+														'rgba(200, 200, 255, 0.2)', // 1 PM
+														'rgba(200, 200, 255, 0.2)', // 2 PM
+														'rgba(200, 200, 255, 0.2)', // 3 PM
+														'rgba(200, 200, 255, 0.2)', // 4 PM
+														'rgba(150, 150, 200, 0.2)', // 5 PM
+														'rgba(100, 100, 150, 0.2)', // 6 PM
+														'rgba(70, 70, 100, 0.2)',   // 7 PM
+														'rgba(30, 30, 70, 0.2)',    // 8 PM
+														'rgba(30, 30, 70, 0.2)',    // 9 PM
+														'rgba(30, 30, 70, 0.2)',    // 10 PM
+														'rgba(0, 0, 0, 0.2)'        // 11 PM
+													],
+													borderColor: [
+														'rgba(0, 0, 0)',       // Midnight
+														'rgba(30, 30, 70)',    // 1 AM
+														'rgba(30, 30, 70)',    // 2 AM
+														'rgba(30, 30, 70)',    // 3 AM
+														'rgba(30, 30, 70)',    // 4 AM
+														'rgba(70, 70, 100)',   // 5 AM
+														'rgba(100, 100, 150)', // 6 AM
+														'rgba(150, 150, 200)', // 7 AM
+														'rgba(200, 200, 255)', // 8 AM
+														'rgba(200, 200, 255)', // 9 AM
+														'rgba(200, 200, 255)', // 10 AM
+														'rgba(200, 200, 255)', // 11 AM
+														'rgba(200, 200, 255)', // Noon
+														'rgba(200, 200, 255)', // 1 PM
+														'rgba(200, 200, 255)', // 2 PM
+														'rgba(200, 200, 255)', // 3 PM
+														'rgba(200, 200, 255)', // 4 PM
+														'rgba(150, 150, 200)', // 5 PM
+														'rgba(100, 100, 150)', // 6 PM
+														'rgba(70, 70, 100)',   // 7 PM
+														'rgba(30, 30, 70)',    // 8 PM
+														'rgba(30, 30, 70)',    // 9 PM
+														'rgba(30, 30, 70)',    // 10 PM
+														'rgba(0, 0, 0)'        // 11 PM
+													],
+													borderWidth: 1
+												}]
+											},
+											options: {
+												scales: {
+													y: {
+														beginAtZero: true
+													}
+												}
+											}
+										});
+									};
+
+								</script>
+
+							</article>
+
+						<!-- Output -->
+							<article id="Output">
+								<h2 class="major">Output</h2>
+								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+								<p>Your RPi5 has registered in the last 24 hours the following changes in the energy output.</p>
+								<h3>Chart</h3>
+								<canvas id="myChartOut" style="width:100%;max-width:700px"></canvas>
+								<script>
+										let ctx2 = document.getElementById('myChartOut').getContext('2d');
+										let myChartOut = new Chart(ctx2, {
+											type: 'line',
+											data: {
+												labels: ['12 AM', '1 AM', '2 AM', '3 AM', '4 AM', '5 AM', '6 AM', '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM', '10 PM', '11 PM'],
+												datasets: [{
+													label: 'Voltage through time (in kiloWatts)',
+													data: [54, 51.4, 52.12, 49.41, 48.8, 51.4, 50.12, 49.41, 56, 58.4, 62.12, 67.41, 69.94, 64.4, 59.12, 56.41, 52.32, 57.4, 62.12, 49.41, 52.02, 51.4, 59.12, 52.41],
+													backgroundColor: [
+														'rgba(0, 0, 0, 0.2)',       // Midnight
+														'rgba(30, 30, 70, 0.2)',    // 1 AM
+														'rgba(30, 30, 70, 0.2)',    // 2 AM
+														'rgba(30, 30, 70, 0.2)',    // 3 AM
+														'rgba(30, 30, 70, 0.2)',    // 4 AM
+														'rgba(70, 70, 100, 0.2)',   // 5 AM
+														'rgba(100, 100, 150, 0.2)', // 6 AM
+														'rgba(150, 150, 200, 0.2)', // 7 AM
+														'rgba(200, 200, 255, 0.2)', // 8 AM
+														'rgba(200, 200, 255, 0.2)', // 9 AM
+														'rgba(200, 200, 255, 0.2)', // 10 AM
+														'rgba(200, 200, 255, 0.2)', // 11 AM
+														'rgba(200, 200, 255, 0.2)', // Noon
+														'rgba(200, 200, 255, 0.2)', // 1 PM
+														'rgba(200, 200, 255, 0.2)', // 2 PM
+														'rgba(200, 200, 255, 0.2)', // 3 PM
+														'rgba(200, 200, 255, 0.2)', // 4 PM
+														'rgba(150, 150, 200, 0.2)', // 5 PM
+														'rgba(100, 100, 150, 0.2)', // 6 PM
+														'rgba(70, 70, 100, 0.2)',   // 7 PM
+														'rgba(30, 30, 70, 0.2)',    // 8 PM
+														'rgba(30, 30, 70, 0.2)',    // 9 PM
+														'rgba(30, 30, 70, 0.2)',    // 10 PM
+														'rgba(0, 0, 0, 0.2)'        // 11 PM
+													],
+													borderColor: [
+														'rgba(0, 0, 0)',       // Midnight
+														'rgba(30, 30, 70)',    // 1 AM
+														'rgba(30, 30, 70)',    // 2 AM
+														'rgba(30, 30, 70)',    // 3 AM
+														'rgba(30, 30, 70)',    // 4 AM
+														'rgba(70, 70, 100)',   // 5 AM
+														'rgba(100, 100, 150)', // 6 AM
+														'rgba(150, 150, 200)', // 7 AM
+														'rgba(200, 200, 255)', // 8 AM
+														'rgba(200, 200, 255)', // 9 AM
+														'rgba(200, 200, 255)', // 10 AM
+														'rgba(200, 200, 255)', // 11 AM
+														'rgba(200, 200, 255)', // Noon
+														'rgba(200, 200, 255)', // 1 PM
+														'rgba(200, 200, 255)', // 2 PM
+														'rgba(200, 200, 255)', // 3 PM
+														'rgba(200, 200, 255)', // 4 PM
+														'rgba(150, 150, 200)', // 5 PM
+														'rgba(100, 100, 150)', // 6 PM
+														'rgba(70, 70, 100)',   // 7 PM
+														'rgba(30, 30, 70)',    // 8 PM
+														'rgba(30, 30, 70)',    // 9 PM
+														'rgba(30, 30, 70)',    // 10 PM
+														'rgba(0, 0, 0)'        // 11 PM
+													],
+													borderWidth: 1
+												}]
+											},
+											options: {
+												scales: {
+													y: {
+														beginAtZero: true
+													}
+												}
+											}
+										});
+
+								</script>
+							</article>
+
+						<!-- Diag -->
+							<article id="Diagnostics">
+								<h2 class="major">RPi5 Diagnostics</h2>
+								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
+								<p>The diagnostics of your Raspberry Pi 5 are presented here</p>
+								<h3 class="major">CPU Temperature</h3>
+								<p id="cpuTemp">Loading...</p>
+							</article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</article>
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+						<!-- Billing -->
+
+							<article id="billing">
+								<h2 class="major">Billing</h2>
+								<div class="pricing-table">
+									<div class="pricing-plan">
+										<h3 class="plan-name">Borvota Essencial</h3>
+										<div class="plan-price">0€/month</div>
+										<ul class="plan-features">
+											<li>Input and output data updated every hour</li>
+											<li>Access to the full Borvota suite</li>
+											<li>Partial access to Borvota´s API</li>
+											<li>Costumer service from 9AM-6PM</li>
+										</ul>
+										<a href="#" class="button primary">Renew</a>
+									</div>
+									<div class="pricing-plan">
+										<h3 class="plan-name">Borvota Deluxe</h3>
+										<div class="plan-price">6€/month</div>
+										<ul class="plan-features">
+											<li>Input and output data updated every second with advanced statistics</li>
+											<li>Instant hydrogen sell <a href='#'>(QuikHydro™)</a></li>
+											<li>Special discounts on newer models</li>
+											<li>Guarantee extension and upgrade</li>
+											<li>Customer service 24/7</li>
+											<li>Full access to Borvota´s API</li>
+											<li>Partake on the BORVO´s thriving community</li>
+											<li>Partnership programme</li>
+										</ul>
+										<a href="#" class="button primary">Subscribe</a>
+									</div>
+								</div>
+						</article>
+
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">Borvo 2024. Design by <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/Chart.js"></script>
+			<script src="assets/js/Rpier.js"></script>
+			<script>
+				// Function to update the temperature display
+				function updateTemperatureDisplay(temp) {
+					document.getElementById('cpuTemp').textContent = "CPU Temperature is " + temp + " °C";
+				}
+
+				// Get the initial temperature
+				getTemperature(function(err, temp) {
+					if(err) {
+						console.error("Failed to get temperature:", err);
+					} else {
+						updateTemperatureDisplay(temp);
+					}
+				});
+
+				// Update the temperature every 5 seconds
+				setInterval(function() {
+					getTemperature(function(err, temp) {
+						if(err) {
+							console.error("Failed to get temperature:", err);
+						} else {
+							updateTemperatureDisplay(temp);
+						}
+					});
+				}, 5000);
+			</script>
+
+	</body>
+</html>
